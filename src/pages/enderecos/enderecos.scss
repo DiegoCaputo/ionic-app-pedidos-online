@@ -1,0 +1,29 @@
+page-enderecos {
+
+    .scroll-content{
+        margin-top: 131px!important
+    }
+
+    .item-md{
+        padding-left: 0!important;
+    }
+
+    ion-segment{
+        margin-top: -2px!important;
+    }
+
+    .segment-button{
+        color: #fff!important;
+        background-color: #ff4e00!important;
+        font-weight: 400;
+        line-height: 5rem!important;
+    }
+
+    .segment-button.segment-activated{
+        border-color: #FFF!important;
+    }
+
+    .opcoes{
+        margin-top: 89px;
+    }
+}

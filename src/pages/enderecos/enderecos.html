@@ -1,0 +1,21 @@
+<custom-header titulo="Endereços" pagamento="false"></custom-header>
+
+<ion-header class="opcoes">
+  <ion-segment [(ngModel)]="opcao">
+    <ion-segment-button value="cadastro">Cadastrar endereço</ion-segment-button>
+    <ion-segment-button value="cadastrados">Endereços cadastrados</ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="opcao">
+    <ion-list *ngSwitchCase="'cadastro'">
+      <cadastro-endereco [opc]=pagamento></cadastro-endereco>
+    </ion-list>
+    <ion-list *ngSwitchCase="'cadastrados'" class="lista-enderecos">
+      <lista-enderecos [pagamento]=false></lista-enderecos>
+    </ion-list>
+  </div>
+</ion-content>
+
+<custom-footer></custom-footer>

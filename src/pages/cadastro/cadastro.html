@@ -1,0 +1,100 @@
+<custom-header titulo="Cadastro"></custom-header>
+<ion-header class="opcoes">
+  <ion-segment [(ngModel)]="autenticacao">
+    <ion-segment-button value="login">Possuo cadastro</ion-segment-button>
+    <ion-segment-button value="cadastro">Não possuo cadastro</ion-segment-button>
+  </ion-segment>
+</ion-header>
+<ion-content padding>
+  <div [ngSwitch]="autenticacao">
+    <ion-list *ngSwitchCase="'login'" class="lista-pessoas">
+      <ion-item *ngFor="let pessoa of pessoas">
+        <ion-label>
+          <span>{{pessoa.pessoa_nome}}</span>
+          <ion-icon class="selecionar" name="checkmark" (click)="selecionarPessoa(pessoa)"></ion-icon>
+          <ion-icon class="visualizar" name="eye" (click)="goToCadastroSegment(pessoa)"></ion-icon>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'cadastro'">
+      <form (ngSubmit)="onSubmit()">
+        <input type="hidden" name="pessoa.id" value="pessoa.id" />
+        <ion-item [class.invalid]="pessoa.nome == '' && click">
+          <ion-label>NOME</ion-label>
+          <ion-input #nomeInput type="text" name="pessoa.nome" [(ngModel)]="pessoa.nome" value="pessoa.nome"></ion-input>
+        </ion-item>
+        <ion-item [class.invalid]="pessoa.sobrenome == '' && click">
+          <ion-label full>SOBRENOME</ion-label>
+          <ion-input #sobrenomeInput type="text" name="pessoa.sobrenome" [(ngModel)]="pessoa.sobrenome"></ion-input>
+        </ion-item>
+        <ion-item [class.invalid]="pessoa.email == '' && click">
+          <ion-label>E-MAIL</ion-label>
+          <ion-input #emailInput type="email" name="pessoa.email" [(ngModel)]="pessoa.email"></ion-input>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col no-padding col-3>
+              <ion-item [class.invalid]="pessoa.ddd == '' && click">
+                <ion-label full>DDD</ion-label>
+                <ion-input #dddInput type="text" name="pessoa.ddd" [(ngModel)]="pessoa.ddd"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col no-padding padding-left>
+              <ion-item [class.invalid]="pessoa.telefone == '' && click">
+                <ion-label full>TELEFONE</ion-label>
+                <ion-input #telefoneInput type="text" name="pessoa.telefone" [(ngModel)]="pessoa.telefone"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item [class.invalid]="pessoa.cpf == '' && click">
+          <ion-label>CPF</ion-label>
+          <ion-input #cpfInput type="text" name="pessoa.cpf" [(ngModel)]="pessoa.cpf"></ion-input>
+        </ion-item>
+        <ion-item [class.invalid]="pessoa.endereco == '' && click">
+          <ion-label full>ENDEREÇO</ion-label>
+          <ion-input #enderecoInput type="text" name="pessoa.endereco" [(ngModel)]="pessoa.endereco"></ion-input>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4 no-padding>
+              <ion-item [class.invalid]="pessoa.numero == '' && click">
+                <ion-label full>Nº</ion-label>
+                <ion-input #numeroInput type="text" name="pessoa.numero" [(ngModel)]="pessoa.numero"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col no-padding padding-left>
+              <ion-item [class.invalid]="pessoa.bairro == '' && click">
+                <ion-label full>BAIRRO</ion-label>
+                <ion-input #bairroInput type="text" name="pessoa.bairro" [(ngModel)]="pessoa.bairro"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item [class.invalid]="pessoa.complemento == '' && click">
+          <ion-label full>COMPLEMENTO</ion-label>
+          <ion-input #complementoInput type="text" name="pessoa.complemento" [(ngModel)]="pessoa.complemento"></ion-input>
+        </ion-item>
+        <ion-item [class.invalid]="pessoa.cep == '' && click">
+          <ion-label full>CEP</ion-label>
+          <ion-input #cepInput type="text" name="pessoa.cep" [(ngModel)]="pessoa.cep"></ion-input>
+        </ion-item>
+        <ion-item [class.invalid]="pessoa.estado == '' && click">
+          <ion-label full>ESTADO</ion-label>
+          <ion-select #estadoInput name="pessoa.estado" [(ngModel)]="pessoa.estado" (ionChange)="getCidades($event)">
+            <ion-option *ngFor="let estado of estados" value="{{estado.pk_estado_id}}">{{estado.estado_nome}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item [class.invalid]="pessoa.cidade == '' && click">
+          <ion-label full>CIDADE</ion-label>
+          <ion-select #cidadeInput name="pessoa.cidade" [(ngModel)]="pessoa.cidade">
+            <ion-option *ngFor="let cidade of cidades" value="{{cidade.pk_cidade_id}}">{{cidade.cidade_nome}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <button type="submit" ion-button full color="secondary" margin-top>Efetuar cadastro</button>
+      </form>
+    </ion-list>
+  </div>
+</ion-content>
+
+<custom-footer></custom-footer>

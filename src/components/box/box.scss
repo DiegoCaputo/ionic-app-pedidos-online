@@ -1,0 +1,19 @@
+box {
+    background-color: #f4f4f4;
+    width: 100%;
+    display: block;
+
+    .titulo{
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .descricao{
+        margin-bottom: 0;
+    }
+
+    span{
+        float: right;
+    }
+}

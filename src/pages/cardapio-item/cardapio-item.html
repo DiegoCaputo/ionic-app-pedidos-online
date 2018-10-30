@@ -1,0 +1,14 @@
+<custom-header filter=true [titulo]="titulo" [objeto]="cardapioItemClass"></custom-header>
+
+<ion-content padding>
+  <ion-list *ngIf="cardapioItens">
+    <box padding margin-bottom *ngFor="let cardapioItem of cardapioItens" preco=true (click)="pushPage(cardapioItem)"
+      [objeto]="cardapioItem.item">
+    </box>
+  </ion-list>
+  <div *ngIf="!cardapioItens">
+      <not-found></not-found>
+  </div>
+</ion-content>
+
+<custom-footer></custom-footer>

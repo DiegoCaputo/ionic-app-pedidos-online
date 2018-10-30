@@ -1,0 +1,15 @@
+<ion-item *ngFor="let cartao of cartoes">
+  <ion-label *ngIf="!pagamento">
+    <i *ngIf="cartao.bandeira" class="bandeira-cartao"><img src="{{cartao.bandeira}}" /></i>
+    <span class="cartao">
+      {{cartao.numero}}
+    </span>
+    <ion-icon class="excluir" name="close" (click)="mostrarConfirmacaoRemocaoDeCartao(cartao)"></ion-icon>
+  </ion-label>
+  <ion-label *ngIf="pagamento" (click)="confirmarPagamento(cartao)">
+    <i *ngIf="cartao.bandeira" class="bandeira-cartao"><img src="{{cartao.bandeira}}" /></i>
+    <span class="cartao">
+        {{cartao.numero}}
+      </span>
+  </ion-label>
+</ion-item>

@@ -1,0 +1,10 @@
+<custom-header titulo='Sua Bandeija'></custom-header>
+
+<ion-content padding>
+  <item tipo="bandeija" [bandeija]="bandeijaClass"></item>
+  <button ion-button full color="primary" (click)="pushToCardapio()" margin-top><ion-icon name="add" margin-right></ion-icon>Adicionar mais</button>
+  <button *ngIf="localizacaoDoUsuario == 1" ion-button full color="secondary" (click)="enviarPedido(); $event.stopPropagation()"><ion-icon name="checkbox-outline" margin-right></ion-icon>Enviar pedido</button>
+  <button *ngIf="localizacaoDoUsuario == 2" ion-button full color="secondary" (click)="finalizarPedido(); $event.stopPropagation()"><ion-icon name="checkbox-outline" margin-right></ion-icon>Ir para o checkout</button>
+</ion-content>
+
+<custom-footer></custom-footer>

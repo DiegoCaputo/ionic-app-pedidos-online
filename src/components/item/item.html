@@ -1,0 +1,44 @@
+<ion-list *ngFor="let item of itens; let idx=index">
+  <ion-list-header>
+    <ion-label><b>{{item[0].quantidade}}</b> {{item[0].nome}}</ion-label>
+    <ion-label text-right>
+      R$ {{item[0].preco | number:'1.2-2'}}
+      <ion-icon *ngIf="tipo == 'bandeija'" (click)="objeto.pushToCardapioItemDescricao(item[0],idx)" padding-left name="create"></ion-icon>
+      <ion-icon *ngIf="tipo == 'bandeija'" (click)="objeto.deletarItem(idx)" padding-left name="trash"></ion-icon>
+    </ion-label>
+  </ion-list-header>
+  <ion-list *ngIf="item[0].metade !== ''">
+    <ion-item-divider detail-push>
+      <ion-label>
+        <ion-icon name="arrow-dropright" padding-right></ion-icon><b>METADE</b> {{item[0].nomeMetade}}
+      </ion-label>
+      <ion-label text-right>
+         R$ {{item[0].precoMetade | number:'1.2-2'}}
+        <ion-icon *ngIf="tipo == 'bandeija'" (click)="objeto.deletarMetade(idx)" padding-left name="trash"></ion-icon>
+      </ion-label>
+    </ion-item-divider>
+  </ion-list>
+  <ion-list>
+    <ion-item-divider detail-push *ngFor="let opcional of itens[idx][1]; let idx2=index">
+      <ion-label>
+        <ion-icon name="arrow-dropright" padding-right></ion-icon>{{opcional.nome}}
+      </ion-label>
+      <ion-label text-right>
+        R$ {{opcional.preco | number:'1.2-2'}}
+        <ion-icon *ngIf="tipo == 'bandeija'" (click)="objeto.deletarOpcional(idx,idx2)" padding-left name="trash"></ion-icon>
+      </ion-label>
+    </ion-item-divider>
+  </ion-list>
+  <ion-list>
+    <ion-item class="total-item">
+      <ion-label>TOTAL DESTE ITEM</ion-label>
+      <ion-label class="valor" text-right>R$ {{item[0].valorTotal | number:'1.2-2'}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-list>
+<ion-list margin-top>
+  <ion-item class="total">
+    <ion-label>TOTAL DO PEDIDO</ion-label>
+    <ion-label class="valor" text-right>R$ {{total | number:'1.2-2'}}</ion-label>
+  </ion-item>
+</ion-list>

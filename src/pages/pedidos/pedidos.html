@@ -1,0 +1,12 @@
+<custom-header titulo="Pedidos"></custom-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let pedido of pedidos" (click)="pushToPedidoDescricao(pedido)">
+      <ion-icon name="arrow-forward" margin-right></ion-icon>
+      {{pedido.pedido_data_hora | date:'dd/MM/yyyy HH:mm:ss'}} <span text-right>R$ {{pedido.pedido_valor  | number:'1.2-2'}}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<custom-footer></custom-footer>

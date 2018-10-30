@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="estabelecimento">{{ estabelecimento.e.estabelecimento_nome }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngFor="let cardapio of estabelecimento">
+    {{ cardapio.e.estabelecimento_nome }}
+  </div>
+</ion-content>

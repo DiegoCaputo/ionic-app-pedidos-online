@@ -1,0 +1,38 @@
+page-endereco {
+
+    .scroll-content{
+        margin-top: 87px!important;
+    }
+
+    .item-md{
+        padding: 0;
+    }
+
+    .lista-enderecos{
+        ion-item.novo-endereco{
+            .item-inner{
+                padding-right: 0!important;
+                border: 0!important;
+            }
+            ion-label{
+                padding: 16px!important;
+                margin-right: 0!important;
+                margin-top: 0!important;
+                background-color: #e0e0e0;
+                ion-icon{
+                    color: #000!important;
+                    float: left!important;
+                    position: relative!important;
+                    bottom: 0!important;
+                    padding: 0!important;
+                }
+                span{
+                    float: right!important;
+                    font-size: 1.3rem!important;
+                    top: 4px!important; 
+                }
+            }
+        }
+    }
+
+}

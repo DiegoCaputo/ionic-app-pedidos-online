@@ -1,0 +1,32 @@
+<ion-menu [content]="nav">
+
+  <ion-header>
+    <ion-toolbar color="lightOrange">
+      <ion-title>App Name</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item menu-item menuClose (click)="pushToCartao()" padding-right>
+        <ion-icon name="card" padding-right padding-left></ion-icon>Cartões
+      </ion-item>
+      <ion-item menu-item menuClose (click)="pushToPedidos()" padding-right>
+        <ion-icon name="list" padding-right padding-left></ion-icon>Pedidos
+      </ion-item>
+      <ion-item menu-item menuClose (click)="pushToEnderecos()" padding-right>
+          <ion-icon name="list" padding-right padding-left></ion-icon>Endereços
+        </ion-item>
+      <ion-item menu-item (click)="mostrarSubMenuComandas()" padding-right>
+        <ion-icon name="paper" padding-right padding-left></ion-icon>Comandas
+      </ion-item>
+      <ion-item-group submenu [class.visible]="subMenuComandas" padding-right>
+        <ion-item menuClose submenu-item (click)="pushToComandasPagas()">Pagas</ion-item>
+        <ion-item menuClose submenu-item (click)="pushToComandasEmAberto()">Em aberto</ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #nav [root]="rootPage" swipeBackEnabled="false"></ion-nav>

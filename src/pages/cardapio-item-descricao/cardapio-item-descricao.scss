@@ -1,0 +1,57 @@
+page-cardapio-item-descricao {
+    
+    .scroll-content{
+        margin-top: 89px!important;
+    }
+    .imagem{
+        background-color: #f2f2f2;
+        width: 100%;
+        height: 150px;
+    }
+    .descricao{
+        font-size: 1.5rem;
+        margin-top: 16px;
+    }
+    
+    h2{
+        font-size: 1.3rem;
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin: 16px 0 3px 0;
+        font-weight: bold;
+    }
+    .opcionais{
+        ion-item{
+            padding-left: 0!important;
+            ion-label{
+                font-size: 1.3rem!important;
+            }
+            span{
+                float: right;
+            }
+        }
+    }
+    .total{
+        font-size: 1.4rem;
+        margin: 16px 0;
+        background-color: #000;
+        color: #FFF;
+        padding: 5px 16px;
+
+        .valor{
+            font-size: 1.4rem;
+        }
+    }
+    .item-input{
+        padding-left: 0!important;
+    }
+    .item-md{
+        padding: 0!important;
+    }
+    .item-md .toggle-md{
+        padding: 0!important;
+    }
+    .item-inner{
+        padding: 0!important;
+    }
+}

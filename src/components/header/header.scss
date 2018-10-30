@@ -1,0 +1,38 @@
+custom-header {
+    .searchbar-md{
+        padding: 0!important;
+    }
+    
+    .toolbar-title-md {
+        font-size: 1.6rem!important;
+        font-weight: 500!important;
+        text-transform: uppercase!important;
+    }
+
+    .header-top{       
+        background-color: #ff4e00!important; 
+        overflow: hidden;
+        span.mesa{
+                padding: 9.5px 16px;
+                float: right;
+        }
+
+        span:nth-child(3){
+            float: right;
+            padding: 9.5px 25px;
+            background-color: #32db64;
+            color: #FFF;
+        }
+    }
+
+    .button-menutoggle{
+        margin: 0 !important;
+        background-color: transparent !important;
+        color: #FFF;
+        box-shadow: none !important;
+        float: left;
+        font-size: 1.8rem;
+        border-radius: 0;
+    }
+
+}

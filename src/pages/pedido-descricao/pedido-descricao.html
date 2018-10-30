@@ -1,0 +1,8 @@
+<custom-header titulo="Pedido"></custom-header>
+
+<ion-content padding>
+    <item *ngIf="itens" [pedidoItens]="itens"></item>
+    <button margin-top *ngIf="itens" ion-button full color="secondary" (click)="repetirPedido(itens)">Repetir pedido</button>
+</ion-content>
+
+<custom-footer></custom-footer>

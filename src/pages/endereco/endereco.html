@@ -1,0 +1,15 @@
+<custom-header titulo="Endereço de entrega"></custom-header>
+
+<ion-content padding>
+    <ion-list class="lista-enderecos">
+        <lista-enderecos [pagamento]=true></lista-enderecos>
+        <ion-item class="novo-endereco">
+            <ion-label (click)="pushToEnderecos(true)">
+                <ion-icon name="add" color="dark"></ion-icon>
+                <span>ADICIONAR ENDEREÇO</span>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<custom-footer></custom-footer>

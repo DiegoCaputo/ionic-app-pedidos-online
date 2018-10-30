@@ -1,0 +1,13 @@
+<custom-header *ngIf="estabelecimento" filter=true [titulo]="estabelecimento.nome" [objeto]="cardapioClass"></custom-header>
+
+<ion-content padding>
+  
+  <ion-list>
+    <box padding margin-bottom *ngFor="let cardapio of cardapios" (click)="pushPage(cardapio)" [objeto]="cardapio">
+    </box>
+  </ion-list>
+  <div *ngIf="!cardapios">
+      <not-found></not-found>
+  </div>
+</ion-content>
+<custom-footer></custom-footer>

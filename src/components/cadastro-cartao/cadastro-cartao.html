@@ -1,0 +1,20 @@
+<span>
+  <ion-item [class.invalid]="creditCard.num == '' && click">
+    <ion-label>NUMERO DO CARTÃO</ion-label>
+    <ion-input type="tel" maxlength="16" value="" (keyup)="verificarBandeira($event)"  #creditCardNum [(ngModel)]="creditCard.num"></ion-input>
+  </ion-item>
+  <i *ngIf="brandImage" class="bandeira-cartao"><img src="{{brandImage}}" /></i>
+</span>
+<ion-item [class.invalid]="creditCard.cvv == '' && click">
+  <ion-label>CÓDIGO DE SEGURANÇA</ion-label>
+  <ion-input type="number" [(ngModel)]="creditCard.cvv" #creditCardCvv></ion-input>
+</ion-item>
+<ion-item [class.invalid]="creditCard.monthExp == '' && click">
+  <ion-label>MÊS - EXPIRAÇÃO</ion-label>
+  <ion-input type="number" [(ngModel)]="creditCard.monthExp" #creditCardMonthExp></ion-input>
+</ion-item>
+<ion-item [class.invalid]="creditCard.yearExp == '' && click">
+  <ion-label>ANO - EXPIRAÇÃO</ion-label>C
+  <ion-input type="number" [(ngModel)]="creditCard.yearExp" #creditCardYearExp></ion-input>
+</ion-item>
+<button ion-button margin-top block color="secondary" (click)="verificarCartaoExistente()">Cadastrar cartão</button>

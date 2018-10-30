@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()">
+  <input type="hidden" name="endereco.id" value="endereco.id" />
+  <ion-item [class.invalid]="endereco.logradouro == '' && click">
+    <ion-label>LOGRADOURO</ion-label>
+    <ion-input #logradouroInput type="text" name="endereco.logradouro" [(ngModel)]="endereco.logradouro" value="endereco.logradouro"></ion-input>
+  </ion-item>
+  <ion-item [class.invalid]="endereco.numero == '' && click">
+    <ion-label>NÚMERO</ion-label>
+    <ion-input #numeroInput type="text" name="endereco.numero" [(ngModel)]="endereco.numero" value="endereco.numero"></ion-input>
+  </ion-item>
+  <ion-item [class.invalid]="endereco.bairro == '' && click">
+    <ion-label full>BAIRRO</ion-label>
+    <ion-input #bairroInput type="text" name="endereco.bairro" [(ngModel)]="endereco.bairro"></ion-input>
+  </ion-item>
+  <ion-item [class.invalid]="endereco.estado == '' && click">
+    <ion-label full>ESTADO</ion-label>
+    <ion-select #estadoInput name="endereco.estado" [(ngModel)]="endereco.estado" (ionChange)="getCidades($event)">
+      <ion-option *ngFor="let estado of estados" value="{{estado.pk_estado_id}}">{{estado.estado_nome}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item [class.invalid]="endereco.cidade == '' && click">
+    <ion-label full>CIDADE</ion-label>
+    <ion-select #cidadeInput name="endereco.cidade" [(ngModel)]="endereco.cidade">
+      <ion-option *ngFor="let cidade of cidades" value="{{cidade.pk_cidade_id}}">{{cidade.cidade_nome}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <button type="submit" ion-button full color="secondary" margin-top>Efetuar cadastro</button>
+</form>

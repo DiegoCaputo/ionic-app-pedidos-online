@@ -1,0 +1,15 @@
+<ion-item *ngFor="let endereco of enderecos">
+  <ion-label *ngIf="!pagamento">
+    <span class="endereco">
+      <ion-icon name="locate" margin-right></ion-icon>
+      {{endereco.logradouro}}
+    </span>
+    <ion-icon class="excluir" name="close" (click)="mostrarConfirmacaoRemocaoDeCartao(cartao)"></ion-icon>
+  </ion-label>
+  <ion-label *ngIf="pagamento" (click)="pushToPedidoConfirmado(endereco)">
+    <span class="endereco">
+      <ion-icon name="locate" margin-right></ion-icon>
+      {{endereco.logradouro}}
+    </span>
+  </ion-label>
+</ion-item>

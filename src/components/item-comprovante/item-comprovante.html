@@ -1,0 +1,24 @@
+<ion-list>
+  <ion-item ion-item *ngFor="let item of itens">
+    <ion-label class="nome">{{item[0].quantidade}} - {{item[0].nome}}</ion-label>
+    <ion-label text-right class="valor-total">R$ {{item[0].valorTotal | number:'1.2-2'}}</ion-label>
+  </ion-item>
+</ion-list>
+<ion-grid>
+  <ion-row>
+    <ion-col class="valor-total">
+      <h3>TOTAL:</h3>
+    </ion-col>
+    <ion-col class="valor">
+      <h3 text-right>R$ {{total | number:'1.2-2'}}</h3>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="pago">
+    <ion-col class="valor-total">
+      <h3>PAGO:</h3>
+    </ion-col>
+    <ion-col col-6 class="valor">
+      <h3 text-right>R$ {{total | number:'1.2-2'}}</h3>
+    </ion-col>
+  </ion-row>
+</ion-grid>

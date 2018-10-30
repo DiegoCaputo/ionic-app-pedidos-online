@@ -1,0 +1,13 @@
+<ion-header>
+  <div class="header-top">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <span *ngIf="mesa && localizacaoDoUsuario == 1" class="mesa"><b>{{mesa}}</b></span>
+  </div>
+  <ion-navbar hideBackButton="hideBackButton" color="orange">
+    <ion-title *ngIf="titulo">{{titulo}}</ion-title>
+    <bandeija-icon></bandeija-icon>
+  </ion-navbar>
+  <ion-searchbar *ngIf="filter" (ionInput)="filtrar($event)"></ion-searchbar>
+</ion-header>

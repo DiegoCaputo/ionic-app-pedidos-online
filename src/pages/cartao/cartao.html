@@ -1,0 +1,20 @@
+<custom-header titulo="Cartões" pagamento="true"></custom-header>
+<ion-header class="opcoes">
+  <ion-segment [(ngModel)]="opcao">
+    <ion-segment-button value="cadastro">Cadastrar cartão</ion-segment-button>
+    <ion-segment-button value="cadastrados">Cartões cadastrados</ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="opcao">
+    <ion-list *ngSwitchCase="'cadastro'">
+      <cadastro-cartao cartao="cartaoClass"></cadastro-cartao>
+    </ion-list>
+    <ion-list *ngSwitchCase="'cadastrados'" class="lista-cartoes">
+      <lista-cartoes [pagamento]=false></lista-cartoes>
+    </ion-list>
+  </div>
+</ion-content>
+
+<custom-footer></custom-footer>

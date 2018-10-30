@@ -1,0 +1,7 @@
+<div class="titulo" *ngIf="objeto">
+  {{ objeto.nome }}
+  <span *ngIf="preco">R$ {{objeto.preco}}</span>
+</div>
+<p class="descricao">
+  <ion-icon name="paper"></ion-icon> {{ objeto.descricao }}
+</p>

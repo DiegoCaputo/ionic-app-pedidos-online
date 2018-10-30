@@ -1,0 +1,10 @@
+<custom-header titulo="Comanda {{numeroComanda}}"></custom-header>
+
+
+<ion-content padding>
+    <item *ngIf="itens" [pedidoItens]="itens"></item>
+    <button *ngIf="itens" margin-top ion-button full color="primary" (click)="pushToComprovante(itens)"><ion-icon margin-right name="paper"></ion-icon>Visualizar comprovante</button>
+
+</ion-content>
+
+<custom-footer></custom-footer>

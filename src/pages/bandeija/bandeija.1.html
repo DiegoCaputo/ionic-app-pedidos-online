@@ -1,0 +1,38 @@
+<custom-header titulo='Resumo do pedido'></custom-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let item of bandeija; let idx=index">
+    <ion-list-header>
+      <ion-label><b>{{item[0].quantidade}}</b> {{item[0].nome}}</ion-label>
+      <ion-label text-right>
+        R$ {{item[0].preco | number:'1.2-2'}}
+        <ion-icon (click)="pushToCardapioItemDescricao(item[0],idx)" padding-left name="create"></ion-icon>
+        <ion-icon (click)="deletarItem(idx)" padding-left name="trash"></ion-icon>
+      </ion-label>
+    </ion-list-header>
+    <ion-list>
+      <ion-item-divider detail-push *ngFor="let opcional of bandeija[idx][1]; let idx2=index">
+        <ion-label>
+          <ion-icon name="arrow-dropright" padding-right></ion-icon>{{opcional.nome}}</ion-label>
+        <ion-label text-right>
+          R$ {{opcional.preco | number:'1.2-2'}}
+          <ion-icon (click)="deletarOpcional(idx,idx2)" padding-left name="trash"></ion-icon>
+        </ion-label>
+      </ion-item-divider>
+    </ion-list>
+    <ion-list>
+      <ion-item class="total-item">
+        <ion-label>TOTAL DESTE ITEM</ion-label>
+        <ion-label class="valor" text-right>R$ {{item[0].valorTotal | number:'1.2-2'}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+  <ion-list margin-top>
+    <ion-item class="total">
+      <ion-label>TOTAL DO PEDIDO</ion-label>
+      <ion-label class="valor" text-right>R$ {{total | number:'1.2-2'}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <button ion-button full color="primary" (click)="pushToCardapio()" margin-top><ion-icon name="add" margin-right></ion-icon>Adicionar mais</button>
+  <button ion-button full color="secondary" (click)="enviarPedido(); $event.stopPropagation()"><ion-icon name="checkbox-outline" margin-right></ion-icon>Enviar pedido</button>
+</ion-content>

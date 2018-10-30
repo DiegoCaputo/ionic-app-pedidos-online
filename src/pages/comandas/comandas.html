@@ -1,0 +1,15 @@
+<custom-header titulo="Comandas"></custom-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="comandas">
+    <ion-item *ngFor="let comanda of comandas" (click)="pushToComandaDescricao(comanda)">
+      <b>{{comanda.pk_comanda_id}}</b> - {{comanda.comanda_data_hora_abertura | date:'dd/MM/yyyy HH:mm:ss'}} <span text-right>R$ {{comanda.comanda_valor_total  | number:'1.2-2'}}</span>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="!comandas">
+    <not-found></not-found>
+  </div>
+</ion-content>
+
+<custom-footer></custom-footer>

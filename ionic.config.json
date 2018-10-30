@@ -1,0 +1,11 @@
+{
+  "name": "app",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://www.eatinmall.com.br"
+    }
+  ],
+  "type": "ionic-angular"
+}

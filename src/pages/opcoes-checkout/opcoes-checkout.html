@@ -1,0 +1,42 @@
+<custom-header titulo="Como deseja proceder ?"></custom-header>
+
+<ion-content padding>
+    <div margin-top>
+            <h2>RETIRADA</h2>
+            <ion-list class="retirada">
+                <ion-item>
+                    <ion-label>Me entregue</ion-label>
+                    <ion-checkbox *ngIf="retirada == 'ENTREGA'" checked="true" (ionChange)="selecionarRetirada('ENTREGA')"></ion-checkbox>
+                    <ion-checkbox *ngIf="retirada != 'ENTREGA'" checked="false" (ionChange)="selecionarRetirada('ENTREGA')"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>No local</ion-label>
+                    <ion-checkbox *ngIf="retirada == 'LOCAL'" checked="true" (ionChange)="selecionarRetirada('LOCAL')"></ion-checkbox>
+                    <ion-checkbox *ngIf="retirada != 'LOCAL'" checked="false" (ionChange)="selecionarRetirada('LOCAL')"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+        </div>
+    <div margin-top>
+        <h2>PAGAMENTO</h2>
+        <ion-list class="pagamento">
+            <ion-item>
+                <ion-label>Dinheiro</ion-label>
+                <ion-checkbox *ngIf="pagamento == 'DINHEIRO'" checked="true" (ionChange)="selecionarPagamento('DINHEIRO')"></ion-checkbox>
+                <ion-checkbox *ngIf="pagamento != 'DINHEIRO'" checked="false" (ionChange)="selecionarPagamento('DINHEIRO')"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label>Cartão</ion-label>
+                <ion-checkbox *ngIf="pagamento == 'CARTÃO'" checked="true" (ionChange)="selecionarPagamento('CARTÃO')"></ion-checkbox>
+                <ion-checkbox *ngIf="pagamento != 'CARTÃO'" checked="false" (ionChange)="selecionarPagamento('CARTÃO')"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label>Online</ion-label>
+                <ion-checkbox *ngIf="pagamento == 'ONLINE'" checked="true" (ionChange)="selecionarPagamento('ONLINE')"></ion-checkbox>
+                <ion-checkbox *ngIf="pagamento != 'ONLINE'" checked="false" (ionChange)="selecionarPagamento('ONLINE')"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+    </div>
+    <button ion-button full color="secondary" (click)="pushToEnderecoOuPagamento()">Continuar</button>
+</ion-content>
+
+<custom-footer></custom-footer>

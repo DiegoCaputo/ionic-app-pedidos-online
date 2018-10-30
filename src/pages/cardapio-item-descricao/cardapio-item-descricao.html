@@ -1,0 +1,53 @@
+<custom-header [titulo]="titulo"></custom-header>
+
+<ion-content padding>
+    <ion-list *ngIf="meio_a_meio == 1">
+        <div class="alert alert-primary" padding>As pizzas meio a meio serão cobradas o maior valor !</div>
+    </ion-list>
+    <div class="imagem"></div>
+    <div *ngIf="item" class="descricao">
+        <ion-icon name="paper"></ion-icon> {{item.descricao}}
+    </div>
+    <div *ngIf="meio_a_meio == 1" margin-top>
+        <h2>MEIO A MEIO</h2>
+        <ion-list class="opcionais">
+            <ion-item ion-item *ngFor="let it of itens">
+                <ion-label>{{ it.item.nome }} (R$ {{it.item.preco}})</ion-label>
+                <ion-checkbox *ngIf="item.metade == it.item.id" checked="true" (ionChange)="selecionarMetade(it)"></ion-checkbox>
+                <ion-checkbox *ngIf="item.metade != it.item.id" checked="false" (ionChange)="selecionarMetade(it)"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngFor="let opcional of opcoes; let idx = index" margin-top>
+        <h2>{{opcional[0].opcao | uppercase}}</h2>
+        <ion-list class="opcionais">
+            <ion-item ion-item *ngFor="let opcional of opcoes[idx]">
+                <ion-label>{{ opcional.nome }} (R$ {{opcional.preco}})</ion-label>
+                <ion-toggle *ngIf="opcional.selecionado" toggle-md-secondary checked="true" (ionChange)="selecionarOpcional(opcional)"></ion-toggle>
+                <ion-toggle *ngIf="!opcional.selecionado" toggle-md-secondary checked="false" (ionChange)="selecionarOpcional(opcional)"></ion-toggle>
+            </ion-item>
+        </ion-list>
+    </div>
+    <form>
+        <ion-item>
+            <ion-label>QUANTIDADE</ion-label>
+            <ion-input type="number" name="quantidade" [(ngModel)]="quantidade" value="quantidade"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label full>OBSERVAÇÃO</ion-label>
+            <ion-textarea rows="5" name="observacao" [(ngModel)]="observacao" value="observacao"></ion-textarea>
+        </ion-item>
+    </form>
+    <div class="total" *ngIf="item">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-9>VALOR</ion-col>
+                <ion-col text-right col-3 class="valor">R$ {{valor | number:'1.2-2'}}</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <button *ngIf="!alterar" ion-button full color="secondary" (click)="adicionarProduto()">Adicionar</button>
+    <button *ngIf="alterar" ion-button full color="secondary" (click)="atualizarProduto(item)">Atualizar</button>
+</ion-content>
+
+<custom-footer></custom-footer>

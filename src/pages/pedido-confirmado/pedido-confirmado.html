@@ -1,0 +1,23 @@
+<custom-header titulo="Resumo do pedido"></custom-header>
+
+<ion-content padding>
+    <div margin-bottom>
+        <h1>Pagamento</h1>
+        <div>- {{pagamento}}</div>
+    </div>
+    <div margin-bottom>
+        <h1>Retirada</h1>
+        <div>- {{retirada}}</div>
+    </div>
+    <div margin-bottom *ngIf="endereco">
+        <h1>Endereço</h1>
+        <div>- {{endereco.logradouro}} - {{endereco.bairro}}</div>
+    </div>
+    <div margin-bottom>
+        <h1>Pedido</h1>
+        <item tipo="resumo" [pedidoItens]="bandeija"></item>
+    </div>
+    <button ion-button full color="secondary" (click)="confirmarPedido(); $event.stopPropagation()"><ion-icon name="checkbox-outline" margin-right></ion-icon>Confirmar pedido</button>
+</ion-content>
+
+<custom-footer></custom-footer>

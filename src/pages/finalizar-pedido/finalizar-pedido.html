@@ -1,0 +1,14 @@
+<custom-header titulo="Pagamento online"></custom-header>
+
+<ion-content padding>
+    <ion-list class="lista-cartoes">
+        <lista-cartoes [pagamento]=true></lista-cartoes>
+        <ion-item class="novo-cartao">
+            <ion-label (click)="pushToCartao()">
+                <ion-icon name="add" color="dark"></ion-icon>
+                <span>ADICIONAR CARTÃO</span>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<custom-footer></custom-footer>

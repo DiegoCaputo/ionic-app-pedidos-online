@@ -1,0 +1,39 @@
+item-comprovante {
+
+    overflow: hidden;
+
+    h3{
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    .item-inner{
+        padding: 0;
+    }
+
+    ion-list{
+        ion-item{
+            padding: 0!important;
+
+            span{
+                overflow: hidden;
+            }
+                
+            .valor-total{
+                margin-right:0;
+            }
+
+            .nome{
+                float:left;
+            }
+        }
+    }
+
+    .valor-total{
+       display: block;
+    }
+
+    .valor-pago{
+        display: block;
+    }
+}
